@@ -1,32 +1,32 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Forestreet Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
+    "primary": "#0f62fe",
+    "light": "#0f62fe",
+    "dark": "#0f62fe",
     "background": {
-      "dark": "#090014"
+      "dark": "#000514"
     },
     "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
+      "from": "#0f62fe",
+      "to": "#09378f"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:info@forestreet.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://ailsa.forestreet.com"
   },
   "tabs": [
     {
@@ -38,27 +38,23 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.forestreet.com"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Forestreet Platform",
+      "icon": "rocket",
+      "url": "https://ailsa.forestreet.com"
     },
     {
-      "name": "Blog",
+      "name": "Forestreet.com",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://forestreet.com/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "pages": ["introduction"]
     },
     {
       "group": "API Documentation",
