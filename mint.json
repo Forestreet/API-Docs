@@ -58,11 +58,11 @@
       "group": "Forestreet API",
       "pages": [
         "introduction",
-        "authentication",
-        "api/market/get",
-        "api/market-companies/get",
-        "api/company/get",
-        "api/esg/get"
+        "api-reference/authentication",
+        "api-reference/market/get",
+        "api-reference/market-companies/get",
+        "api-reference/company/get",
+        "api-reference/esg/get"
       ]
     }
   ],
