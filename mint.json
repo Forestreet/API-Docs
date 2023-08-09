@@ -18,6 +18,12 @@
       "to": "#09378f"
     }
   },
+  "api": {
+    "auth": {
+      "method": "key",
+      "name": "x-api-key"
+    }
+  },
   "topbarLinks": [
     {
       "name": "Support",

@@ -1,28 +1,19 @@
 ---
 title: "Get Market Companies"
-api: "GET https://cat-fact.herokuapp.com/facts/"
+api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/1446"
 description: "This endpoint gets all companies in a sample market."
 ---
 
-### Body
+### Query
 
-<ParamField body="name" type="string">
+<ParamField query="page" type="string">
   This is the name of the user group.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField query="perPage" type="string">
+  This is the name of the user group.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
-</ParamField>
 
 ### Response
 
