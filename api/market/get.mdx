@@ -1,0 +1,61 @@
+---
+title: "Market"
+api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/1"
+description: "This endpoint gets the details of a market."
+---
+
+### Path
+
+<ParamField path="id" type="string">
+  This is the id of the market
+</ParamField>
+
+
+### Response
+
+<ResponseField name="id" type="number">
+  A unique identifier for the market.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The main title or name of the market.
+</ResponseField>
+
+<ResponseField name="subtitle" type="string">
+  A short, supplementary title providing additional context about the market.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  A detailed description outlining the purpose and content of the market, including the types of services provided.
+</ResponseField>
+
+<ResponseField name="date_created" type="date">
+  The timestamp of when the market was created, in ISO 8601 format.
+</ResponseField>
+
+<ResponseField name="company_count" type="number">
+  The total number of companies that are part of this market.
+</ResponseField>
+
+<ResponseField name="header_image_url" type="string">
+  The URL to the thumbnail representing the market.
+</ResponseField>
+
+<ResponseField name="review_status" type="string">
+  The current review status of the market. Intended for back-office use. Values include "published", "draft", "reviewing".
+</ResponseField>
+
+<ResponseExample>
+  ```json Response
+  {
+    "id": 1,
+    "name": "Sustainability Consulting",
+    "subtitle": "Initial view of specialist consulting",
+    "description": "This study maps out the sustainable consulting market. Exploring companies that offer a variety of services within the sector such as sustainability analytics and ESG data collection",
+    "date_created": "2020-12-09T00:00:00.000Z",
+    "company_count": 189,
+    "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/esg%402x.jpg",
+    "review_status": "published"
+  }
+  ```
+</ResponseExample>

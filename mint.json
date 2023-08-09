@@ -35,10 +35,6 @@
     "url": "https://ailsa.forestreet.com"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
     {
@@ -59,20 +55,14 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "Forestreet API",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "introduction",
+        "api/authentication",
+        "api/market/get",
+        "api/market-companies/get",
+        "api/company/get",
+        "api/esg/get"
       ]
     }
   ],

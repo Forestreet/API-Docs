@@ -1,0 +1,194 @@
+---
+title: "Companies in a Market"
+api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/1/companies"
+description: "This endpoint gets the companies in a market (Sustainability Consulting)."
+---
+
+### Path
+
+<ParamField path="id" type="string">
+  The ID of the market whose companies you want to retrieve.
+</ParamField>
+
+### Query Parameters
+
+<ParamField query="perPage" type="string">
+  Specifies the number of companies to retrieve per page.
+</ParamField>
+
+<ParamField query="page" type="string">
+  The page number to retrieve.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The unique domain identifier for the company.
+</ResponseField>
+
+<ResponseField name="logoURL" type="string">
+  The URL pointing to the company's logo.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The official name of the company.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  A brief description of the company and its operations.
+</ResponseField>
+
+<ResponseField name="foundedYear" type="number">
+  The year the company was founded.
+</ResponseField>
+
+<ResponseField name="totalFundingAmount" type="number|null">
+  The total amount of funding received by the company. Null if not available.
+</ResponseField>
+
+<ResponseField name="hqAddress" type="string">
+  The full address of the company's headquarters.
+</ResponseField>
+
+<ResponseField name="hqCity" type="string">
+  The city where the company's headquarters is located.
+</ResponseField>
+
+<ResponseField name="hqState" type="string">
+  The state or region of the company's headquarters.
+</ResponseField>
+
+<ResponseField name="hqCountry" type="string">
+  The country where the company's headquarters is located.
+</ResponseField>
+
+<ResponseField name="size" type="string">
+  The size or employee range of the company.
+</ResponseField>
+
+<ResponseField name="fundingRounds" type="number|null">
+  The total number of funding rounds the company has gone through. Null if not available.
+</ResponseField>
+
+<ResponseField name="IPODate" type="date|null">
+  The date when the company went public. Null if it hasn't or the date is not available.
+</ResponseField>
+
+<ResponseField name="revenue" type="string">
+  The estimated revenue range of the company.
+</ResponseField>
+
+<ResponseField name="linkedInHandle" type="string">
+  The company's LinkedIn profile handle.
+</ResponseField>
+
+<ResponseField name="twitterHandle" type="string">
+  The company's Twitter handle.
+</ResponseField>
+
+<ResponseField name="tags" type="array">
+  An array of tags or services associated with the company.
+</ResponseField>
+
+<ResponseField name="momentum" type="object">
+
+  <Expandable title="momentum">
+
+    <ResponseField name="esg" type="number">
+      The company's Environmental, Social, and Governance (ESG) score.
+    </ResponseField>
+
+    <ResponseField name="overall" type="number">
+      The company's general momentum score.
+    </ResponseField>
+
+    <ResponseField name="webTraffic" type="number">
+      The company's web traffic score.
+    </ResponseField>
+
+    <ResponseField name="mediaAnalysis" type="number">
+      The company's media analysis score.
+    </ResponseField>
+
+    <ResponseField name="revenueEstimates" type="number">
+      The company's revenue estimates score.
+    </ResponseField>
+
+  </Expandable>
+
+</ResponseField>
+
+<ResponseField name="funding" type="object|null">
+  Details about the company's funding. Null if not available.
+</ResponseField>
+
+<ResponseField name="entryPoint" type="string|null">
+  The entry point or initial contact for the company. Null if not provided.
+</ResponseField>
+
+<ResponseField name="contactNumber" type="string">
+  The primary contact number for the company.
+</ResponseField>
+
+<ResponseField name="contactEmail" type="string">
+  The primary contact email for the company.
+</ResponseField>
+
+
+<ResponseExample>
+  ```json Response
+  {
+    "pagination": {
+      "total": 192,
+      "lastPage": 192,
+      "prevPage": 1,
+      "nextPage": 3,
+      "perPage": 1,
+      "currentPage": 2,
+      "from": 1,
+      "to": 2,
+      "total_filtered": 192
+    },
+    "data": [
+      {
+        "id": "erm.com",
+        "logoURL": "https://logo.clearbit.com/erm.com",
+        "name": "ERM",
+        "description": "ERM is a sustainability consultancy that partners with the world's leading organizations to create innovative solutions to sustainability challenges and unlock commercial opportunities that meet the needs of today while preserving opportunity for futur...",
+        "foundedYear": 1987,
+        "totalFundingAmount": null,
+        "hqAddress": "Alaska, USA",
+        "hqCity": "London",
+        "hqState": "Alaska",
+        "hqCountry": "United States",
+        "size": "1,000-10,000",
+        "fundingRounds": null,
+        "IPODate": null,
+        "revenue": "$1B-$10B",
+        "linkedInHandle": "company/erm",
+        "twitterHandle": "GlobalERM",
+        "tags": [
+          "Due dilligence",
+          "Sustainability analytics",
+          "Strategy consulting",
+          "Implementation",
+          "Reporting"
+        ],
+        "momentum": {
+          "esg": 3,
+          "overall": 52,
+          "webTraffic": 58,
+          "mediaAnalysis": 62,
+          "revenueEstimates": 90
+        },
+        "overallMomentum": 52,
+        "funding": null,
+        "entryPoint": null,
+        "contactNumber": "442032065200",
+        "contactEmail": "john.green@erm-ins.co.uk"
+      }
+    ]
+  }
+  ```
+</ResponseExample>
+

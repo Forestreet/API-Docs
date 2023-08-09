@@ -1,0 +1,214 @@
+---
+title: "Company"
+api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/companies/accenture.com"
+description: "This endpoint gets all details for a company."
+---
+
+### Path
+
+<ParamField path="domain" type="string">
+  This is the unique domain name of a company
+</ParamField>
+
+### Response
+
+<ResponseField name="domain" type="string">
+  The unique domain identifier for the company.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The official name of the company.
+</ResponseField>
+
+<ResponseField name="HQ" type="string">
+  The complete address of the company's headquarters.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  A description of the company's primary operations and value proposition.
+</ResponseField>
+
+<ResponseField name="founded_date" type="string">
+  The year the company was founded.
+</ResponseField>
+
+<ResponseField name="website" type="string">
+  The company's official website URL.
+</ResponseField>
+
+<ResponseField name="employees" type="string">
+  A classification of the company size based on the number of employees.
+</ResponseField>
+
+<ResponseField name="funding_rounds" type="number">
+  The total number of funding rounds the company has undergone.
+</ResponseField>
+
+<ResponseField name="funding_amount" type="string">
+  The total amount of funding the company has received across all rounds.
+</ResponseField>
+
+<ResponseField name="investors" type="number">
+  The total number of investors that have invested in the company.
+</ResponseField>
+
+<ResponseField name="IPO_date" type="date or null">
+  The date the company went public. It's null if the company hasn't undergone an IPO.
+</ResponseField>
+
+<ResponseField name="HQ_lat" type="number">
+  The latitude coordinate of the company's headquarters.
+</ResponseField>
+
+<ResponseField name="HQ_lng" type="number">
+  The longitude coordinate of the company's headquarters.
+</ResponseField>
+
+<ResponseField name="HQ_city" type="string">
+  The city where the company's headquarters is located.
+</ResponseField>
+
+<ResponseField name="HQ_state" type="string or null">
+  The state or province where the company's headquarters is located. This can be null if not applicable.
+</ResponseField>
+
+<ResponseField name="HQ_country" type="string">
+  The country where the company's headquarters is located.
+</ResponseField>
+
+<ResponseField name="employee_count" type="number">
+  The exact number of employees at the company.
+</ResponseField>
+
+<ResponseField name="linkedin_handle" type="string">
+  The company's LinkedIn handle or profile URL segment.
+</ResponseField>
+
+<ResponseField name="twitter_handle" type="string">
+  The company's official Twitter handle.
+</ResponseField>
+
+<ResponseField name="twitter_followers" type="number or null">
+  The number of followers on the company's Twitter profile. Null if not available.
+</ResponseField>
+
+<ResponseField name="company_ticker" type="string or null">
+  The company's stock ticker symbol, if it's publicly traded. Null if not applicable.
+</ResponseField>
+
+<ResponseField name="estimated_annual_revenue" type="string">
+  An estimated range for the company's annual revenue.
+</ResponseField>
+
+<ResponseField name="parent_domain" type="string or null">
+  The domain of the company's parent organization, if it's a subsidiary. Null if not applicable.
+</ResponseField>
+
+<ResponseField name="ultimate_parent_domain" type="string or null">
+  The domain of the ultimate parent organization if the company is part of a larger conglomerate or group. Null if not applicable.
+</ResponseField>
+
+  <ResponseField name="web_traffic" type="object">
+    <Expandable title="web_traffic">
+
+      <ResponseField name="date" type="date">
+        The date corresponding to the reported web traffic ranking.
+      </ResponseField>
+
+      <ResponseField name="global_domain_rank" type="number">
+        The company's global domain rank as of the specified date. 1 being the most popular domain in the world. Maximum number is infinity.
+      </ResponseField>
+
+    </Expandable>
+  </ResponseField>
+
+<ResponseField name="funding" type="object">
+  <Expandable title="funding">
+
+    <ResponseField name="funding_date" type="date">
+      The date of the specific funding round.
+    </ResponseField>
+
+    <ResponseField name="currency" type="string">
+      The currency in which the funding was received.
+    </ResponseField>
+
+    <ResponseField name="amount" type="string">
+      The amount of funding received in the specified round.
+    </ResponseField>
+
+    <ResponseField name="funding_type" type="string">
+      The type of funding round, such as Seed, Series A, etc.
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+
+<ResponseExample>
+
+  ```json Response
+  {
+    "domain": "forestreet.com",
+    "name": "Forestreet",
+    "HQ": "1 Fore Street, London, EC2Y 9DT, England, GBR",
+    "description": "Enables businesses select the right firm to partner, invest or acquire using a proprietary whole-of-market database digital leaders.",
+    "founded_date": "2017",
+    "website": "https://forestreet.com",
+    "employees": "B. Small 10-50",
+    "funding_rounds": 1,
+    "funding_amount": "2750000",
+    "investors": 3,
+    "IPO_date": null,
+    "HQ_lat": 51.509647369384766,
+    "HQ_lng": -0.09907600283622742,
+    "HQ_city": "London",
+    "HQ_state": null,
+    "HQ_country": "United Kingdom",
+    "employee_count": 8,
+    "linkedin_handle": "company/forestreet",
+    "twitter_handle": "forestreet_",
+    "twitter_followers": 28,
+    "company_ticker": null,
+    "estimated_annual_revenue": "$1M-$10M",
+    "parent_domain": null,
+    "ultimate_parent_domain": null,
+    "web_traffic": [
+      {
+        "date": "2023-03-01T00:00:00.000Z",
+        "global_domain_rank": 11736516
+      },
+      {
+        "date": "2023-02-01T00:00:00.000Z",
+        "global_domain_rank": 12870952
+      },
+      {
+        "date": "2023-01-01T00:00:00.000Z",
+        "global_domain_rank": 14688496
+      }
+    ],
+    "funding": [
+      {
+        "funding_date": "2017-01-31",
+        "currency": "USD",
+        "amount": "0",
+        "funding_type": "Seed"
+      },
+      {
+        "funding_date": "2022-03-23",
+        "currency": "GBP",
+        "amount": "2750000",
+        "funding_type": "Series A"
+      },
+      {
+        "funding_date": "2023-05-02",
+        "currency": "USD",
+        "amount": "0",
+        "funding_type": "Debt Financing"
+      }
+    ]
+  }
+  ```
+
+</ResponseExample>
