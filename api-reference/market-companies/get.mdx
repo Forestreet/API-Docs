@@ -12,11 +12,11 @@ description: "This endpoint gets the companies in a market (Sustainability Consu
 
 ### Query Parameters
 
-<ParamField query="perPage" type="string">
+<ParamField query="perPage" type="string" default="20" initialValue="10">
   Specifies the number of companies to retrieve per page.
 </ParamField>
 
-<ParamField query="page" type="string">
+<ParamField query="page" type="string" default="1" initialValue="1">
   The page number to retrieve.
 </ParamField>
 
