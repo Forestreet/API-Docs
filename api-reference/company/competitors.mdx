@@ -1,0 +1,25 @@
+---
+title: "Company Competitors"
+api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/{market_id}/companies/{domain}/competitors"
+description: "This endpoint gets competitors of a company within a market."
+---
+
+### Path
+
+<ParamField path="market_id" type="string" initialValue="1">
+  This is the unique ID of a market
+</ParamField>
+
+<ParamField path="domain" type="string" initialValue="erm.com">
+  This is the unique domain name of a company
+</ParamField>
+
+### Response
+
+<ResponseExample>
+  ```json Response
+  {
+
+  }
+  ```
+</ResponseExample>

@@ -1,12 +1,12 @@
 ---
-title: "Company"
-api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/companies/{domain}"
-description: "This endpoint gets all details for a company."
+title: "Company in a Market"
+api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/market/{market_id}/companies/{domain}"
+description: "This endpoint gets all details for a company within a given market."
 ---
 
 ### Path
 
-<ParamField path="domain" type="string">
+<ParamField path="domain" type="string" initialValue="forestreet.com">
   This is the unique domain name of a company
 </ParamField>
 
@@ -108,19 +108,19 @@ description: "This endpoint gets all details for a company."
   The domain of the ultimate parent organization if the company is part of a larger conglomerate or group. Null if not applicable.
 </ResponseField>
 
-  <ResponseField name="web_traffic" type="object">
-    <Expandable title="web_traffic">
+<ResponseField name="web_traffic" type="object">
+  <Expandable title="web_traffic">
 
-      <ResponseField name="date" type="date">
-        The date corresponding to the reported web traffic ranking.
-      </ResponseField>
+    <ResponseField name="date" type="date">
+      The date corresponding to the reported web traffic ranking.
+    </ResponseField>
 
-      <ResponseField name="global_domain_rank" type="number">
-        The company's global domain rank as of the specified date. 1 being the most popular domain in the world. Maximum number is infinity.
-      </ResponseField>
+    <ResponseField name="global_domain_rank" type="number">
+      The company's global domain rank as of the specified date. 1 being the most popular domain in the world. Maximum number is infinity.
+    </ResponseField>
 
-    </Expandable>
-  </ResponseField>
+  </Expandable>
+</ResponseField>
 
 <ResponseField name="funding" type="object">
   <Expandable title="funding">
@@ -153,7 +153,7 @@ description: "This endpoint gets all details for a company."
     "domain": "forestreet.com",
     "name": "Forestreet",
     "HQ": "1 Fore Street, London, EC2Y 9DT, England, GBR",
-    "description": "Enables businesses select the right firm to partner, invest or acquire using a proprietary whole-of-market database digital leaders.",
+    "description": "Enables businesses to select the right firm to partner, invest or acquire using a proprietary whole-of-market database.",
     "founded_date": "2017",
     "website": "https://forestreet.com",
     "employees": "B. Small 10-50",
@@ -175,38 +175,38 @@ description: "This endpoint gets all details for a company."
     "parent_domain": null,
     "ultimate_parent_domain": null,
     "web_traffic": [
-      {
-        "date": "2023-03-01T00:00:00.000Z",
-        "global_domain_rank": 11736516
-      },
-      {
-        "date": "2023-02-01T00:00:00.000Z",
-        "global_domain_rank": 12870952
-      },
-      {
-        "date": "2023-01-01T00:00:00.000Z",
-        "global_domain_rank": 14688496
-      }
+  {
+    "date": "2023-03-01T00:00:00.000Z",
+    "global_domain_rank": 11736516
+  },
+  {
+    "date": "2023-02-01T00:00:00.000Z",
+    "global_domain_rank": 12870952
+  },
+  {
+    "date": "2023-01-01T00:00:00.000Z",
+    "global_domain_rank": 14688496
+  }
     ],
     "funding": [
-      {
-        "funding_date": "2017-01-31",
-        "currency": "USD",
-        "amount": "0",
-        "funding_type": "Seed"
-      },
-      {
-        "funding_date": "2022-03-23",
-        "currency": "GBP",
-        "amount": "2750000",
-        "funding_type": "Series A"
-      },
-      {
-        "funding_date": "2023-05-02",
-        "currency": "USD",
-        "amount": "0",
-        "funding_type": "Debt Financing"
-      }
+  {
+    "funding_date": "2017-01-31",
+    "currency": "USD",
+    "amount": "0",
+    "funding_type": "Seed"
+  },
+  {
+    "funding_date": "2022-03-23",
+    "currency": "GBP",
+    "amount": "2750000",
+    "funding_type": "Series A"
+  },
+  {
+    "funding_date": "2023-05-02",
+    "currency": "USD",
+    "amount": "0",
+    "funding_type": "Debt Financing"
+  }
     ]
   }
   ```

@@ -11,7 +11,7 @@
     "light": "#0f62fe",
     "dark": "#0f62fe",
     "background": {
-      "dark": "#000514"
+      "dark": "#0f1726"
     },
     "anchors": {
       "from": "#0f62fe",
@@ -27,21 +27,16 @@
   "topbarLinks": [
     {
       "name": "Contact Us",
-      "url": "mailto:info@forestreet.com"
+      "url": "https://forestreet.com/contact-us"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
+    "name": "Platform",
     "url": "https://ailsa.forestreet.com"
   },
   "tabs": [
   ],
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.forestreet.com"
-    },
     {
       "name": "Forestreet Platform",
       "icon": "rocket",
@@ -58,11 +53,21 @@
       "group": "Forestreet API",
       "pages": [
         "introduction",
+        "terminology",
         "api-reference/authentication",
+        "api-reference/markets/search",
+        "api-reference/markets/get",
         "api-reference/market/get",
-        "api-reference/market-companies/get",
+        "api-reference/market/news",
+        "api-reference/market/keywords",
+        "api-reference/market/topics",
+        "api-reference/market/companies",
         "api-reference/company/get",
-        "api-reference/esg/get"
+        "api-reference/company/esg",
+        "api-reference/company/momentum",
+        "api-reference/company/competitors",
+        "api-reference/company/news",
+        "api-reference/company/services"
       ]
     }
   ],
