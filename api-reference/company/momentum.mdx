@@ -1,8 +1,18 @@
 ---
 title: "Company Momentum"
 api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/{market_id}/companies/{domain}/momentum"
-description: "This endpoint gets momentum data for a company within a market."
+description: "The Momentum Score endpoint provides a comprehensive metric indicating the evolving trajectory of a company's performance across various dimensions, over a given period of time."
 ---
+
+Each response will provide details of the Momentum Score on specific dates. For each date, the API provides:
+
+- Scores across all categories.
+- The change field that shows the difference in scores from the previous date.
+
+### Use Cases:
+- Track a company's trajectory over time, understanding positive and negative shifts.
+- Correlate momentum scores with significant company or industry events.
+- Compare the performance of companies within the same sector or across sectors.
 
 ### Path
 
@@ -16,10 +26,138 @@ description: "This endpoint gets momentum data for a company within a market."
 
 ### Response
 
+The Momentum Score is a composite of scores from several categories, including:
+
+<ResponseField name="overall" type="number">
+  An aggregate score representing the company's overall momentum across all metrics. The score ranges between 0 and 100, with higher values indicating positive momentum.
+</ResponseField>
+<ResponseField name="web_traffic" type="number">
+  A score indicating the company's digital visibility and engagement based on web traffic. Score ranges between 0 and 100.
+</ResponseField>
+<ResponseField name="esg" type="number">
+  An ESG (Environmental, Social, and Governance) score reflecting the company's reputation and practices in these areas. Score ranges between 0 and 100.
+</ResponseField>
+<ResponseField name="media_analysis" type="number">
+  A score derived from the sentiment and volume of media coverage associated with the company. Score ranges between 0 and 100.
+</ResponseField>
+<ResponseField name="revenue_estimates" type="number">
+  A score that depicts financial expectations based on market research for the company. Score ranges between 0 and 100.
+</ResponseField>
+<ResponseField name="date" type="string">
+  The date on which the scores were computed, provided in the ISO 8601 format.
+</ResponseField>
+<ResponseField name="change" type="object">
+  An object detailing the difference in each score from the previous recorded date. The structure mirrors the main object fields, but denotes change values.
+</ResponseField>
+
 <ResponseExample>
   ```json Response
-  {
-
-  }
+  [
+    {
+      "overall": 72,
+      "web_traffic": 65,
+      "esg": 71,
+      "media_analysis": 90,
+      "revenue_estimates": 30,
+      "date": "2023-06-04T23:00:00.000Z",
+      "change": {
+        "overall": 3,
+        "web_traffic": 0,
+        "esg": 0,
+        "media_analysis": 7,
+        "revenue_estimates": 0
+      }
+    },
+    {
+      "overall": 69,
+      "web_traffic": 65,
+      "esg": 71,
+      "media_analysis": 83,
+      "revenue_estimates": 30,
+      "date": "2023-06-01T23:00:00.000Z",
+      "change": {
+        "overall": 1,
+        "web_traffic": 7,
+        "esg": -1,
+        "media_analysis": -5,
+        "revenue_estimates": 0
+      }
+    },
+    {
+      "overall": 68,
+      "web_traffic": 58,
+      "esg": 72,
+      "media_analysis": 88,
+      "revenue_estimates": 30,
+      "date": "2023-05-17T23:00:00.000Z",
+      "change": {
+        "overall": 6,
+        "web_traffic": 15,
+        "esg": 7,
+        "media_analysis": -2,
+        "revenue_estimates": 0
+      }
+    },
+    {
+      "overall": 62,
+      "web_traffic": 43,
+      "esg": 65,
+      "media_analysis": 90,
+      "revenue_estimates": 30,
+      "date": "2023-05-01T23:00:00.000Z",
+      "change": {
+        "overall": 3,
+        "web_traffic": 9,
+        "esg": 0,
+        "media_analysis": 1,
+        "revenue_estimates": 0
+      }
+    },
+    {
+      "overall": 59,
+      "web_traffic": 34,
+      "esg": 65,
+      "media_analysis": 89,
+      "revenue_estimates": 30,
+      "date": "2023-04-18T23:00:00.000Z",
+      "change": {
+        "overall": 1,
+        "web_traffic": 0,
+        "esg": 0,
+        "media_analysis": 1,
+        "revenue_estimates": 0
+      }
+    },
+    {
+      "overall": 58,
+      "web_traffic": 34,
+      "esg": 65,
+      "media_analysis": 88,
+      "revenue_estimates": 30,
+      "date": "2023-04-10T23:00:00.000Z",
+      "change": {
+        "overall": 5,
+        "web_traffic": 14,
+        "esg": 0,
+        "media_analysis": 0,
+        "revenue_estimates": 0
+      }
+    },
+    {
+      "overall": 53,
+      "web_traffic": 20,
+      "esg": 65,
+      "media_analysis": 88,
+      "revenue_estimates": 30,
+      "date": "2023-03-29T23:00:00.000Z",
+      "change": {
+        "overall": 0,
+        "web_traffic": 0,
+        "esg": 0,
+        "media_analysis": 0,
+        "revenue_estimates": 0
+      }
+    }
+  ]
   ```
 </ResponseExample>

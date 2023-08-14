@@ -57,7 +57,8 @@
         "api-reference/market/get",
         "api-reference/market/companies",
         "api-reference/company/get",
-        "api-reference/company/esg"
+        "api-reference/company/esg",
+        "api-reference/company/momentum"
       ]
     }
   ],
