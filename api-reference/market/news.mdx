@@ -1,7 +1,7 @@
 ---
 title: "Market News"
 api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/{market_id}/news"
-description: "This endpoint gets news and events for a single market."
+description: "Retrieve a list of news articles and events specifically tailored for a given market, providing up-to-date insights and happenings related to that market."
 ---
 
 ### Path
@@ -10,52 +10,80 @@ description: "This endpoint gets news and events for a single market."
   This is the id of the market
 </ParamField>
 
+### Query
+
+<ParamField query="searchTerm" type="string" initialValue="">
+  Filter the news articles based on a specific keyword or phrase.
+</ParamField>
 
 ### Response
 
-<ResponseField name="id" type="number">
-  A unique identifier for the market.
+<ResponseField name="company_domain" type="string">
+  The domain of the company the news article is about.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  The main title or name of the market.
+<ResponseField name="URL" type="string">
+  The direct link to the news article.
 </ResponseField>
 
-<ResponseField name="subtitle" type="string">
-  A short, supplementary title providing additional context about the market.
+<ResponseField name="title" type="string">
+  The title of the news article.
 </ResponseField>
 
-<ResponseField name="description" type="string">
-  A detailed description outlining the purpose and content of the market, including the types of services provided.
+<ResponseField name="snippet" type="string">
+  A brief summary or extract from the article.
 </ResponseField>
 
-<ResponseField name="date_created" type="date">
-  The timestamp of when the market was created, in ISO 8601 format.
+<ResponseField name="date_published" type="string">
+  The date and time when the article was published in the format "YYYY-MM-DDTHH:MM:SS.sssZ".
 </ResponseField>
 
-<ResponseField name="company_count" type="number">
-  The total number of companies that are part of this market.
+<ResponseField name="source" type="string">
+  The source or publisher of the news article.
 </ResponseField>
 
-<ResponseField name="header_image_url" type="string">
-  The URL to the thumbnail representing the market.
+<ResponseField name="source_logo_base64" type="string">
+  A base64 encoded string representing the logo image of the news source.
 </ResponseField>
 
-<ResponseField name="review_status" type="string">
-  The current review status of the market. Intended for back-office use. Values include "published", "draft", "reviewing".
+<ResponseField name="text" type="string">
+  The main content or body of the news article.
 </ResponseField>
+
 
 <ResponseExample>
   ```json Response
-  {
-    "id": 1,
-    "name": "Sustainability Consulting",
-    "subtitle": "Initial view of specialist consulting",
-    "description": "This study maps out the sustainable consulting market. Exploring companies that offer a variety of services within the sector such as sustainability analytics and ESG data collection",
-    "date_created": "2020-12-09T00:00:00.000Z",
-    "company_count": 189,
-    "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/esg%402x.jpg",
-    "review_status": "published"
-  }
+  [
+    {
+      "company_domain": "ibm.com",
+      "URL": "https://www.prnewswire.com/news-releases/ibm-elects-michael-miebach-to-its-board-of-directors-301889601.html",
+      "title": "IBM Elects Michael Miebach to its Board of Directors",
+      "snippet": "",
+      "date_published": "2023-07-31T23:00:00.000Z",
+      "source": "PR Newswire",
+      "source_logo_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAkFBMVEUAg30Bg30AgHsTg31agXoAeXLRck/U4N8AhYEAfXbD1dTb5eSsyccAc2ybu7n///9ypqKUuLVEjIdlm5eYtLEognzDzsxglI8denN8paHm7OwAZ16owb+RsKxbi4XM2tn09fWIqKOIsKylw8GAnJcAVEm0y8lJjohhpaJImZcqjYp8tLOSwcCIeWfTb0psfG5A5FTnAAAAqElEQVQYlV2PWxeCIBCEF2xDUfAWaV6StNCy7P//u6Cn6HvamTMz5yyQP8DDSYpICUGMCERWUcg4z7Hg3NSRVFBmkBzUUVZxfWpa1mEvIemDkp0ZirQdtHDGRXRTxTBziXGUMOnYYKVNKpCp5vpNoC3ddICsMMZtUAgqJqZcsFmlIxhnlDEWuo1nHHJY7mEYPlZKn7jaY4HXtv9he4PaeSgggQex7/h8AH8pDK5mwSCuAAAAAElFTkSuQmCC",
+      "text": "ARMONK, N.Y., July 31, 2023 /PRNewswire/ -- The IBM (NYSE: IBM) board of directors has elected Michael Miebach to the board, effective October 30, 2023.\nMichael Miebach, 55, is the chief executive officer of Mastercard Incorporated and a member of its board of directors. An innovator and technologist, Mr. Miebach has led Mastercard, a global technology company in the payments industry, since January 2021. Previously Mastercard's chief product officer, Mr. Miebach has deep experience in digital transformation, cybersecurity and delivering data-driven insights.\nArvind Krishna, IBM chairman and chief executive officer, said: \"We are delighted that Michael Miebach will join the IBM board of directors. Michael is an accomplished technologist and international business leader. His insights and experience will strongly benefit IBM and its shareholders.\"\nMr. Miebach is a member of the Business Roundtable, the Business Council and the International Business Council of the World Economic Forum. He is a trustee of the United States Council for International Business and also serves on the United States Treasury Advisory Committee on Racial Equity.\nMr. Miebach holds a Master of Business Administration from the University of Passau in Germany.\nContact:\nTim Davidson\n914-844-7847\ntfdavids@us.ibm.com\nSOURCE IBM"
+    },
+    {
+      "company_domain": "ibm.com",
+      "URL": "https://ciosea.economictimes.indiatimes.com/news/next-gen-technologies/harnessing-ai-for-businesses-with-ibm-watson/102266742",
+      "title": "Harnessing AI for businesses with IBM Watson",
+      "snippet": "Experience watsonx in action at upcoming Think events in Mumbai and  Singapore:https://www.ibm.com/events/think/.",
+      "date_published": "2023-07-31T23:00:00.000Z",
+      "source": "Southeast Asia",
+      "source_logo_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAhFBMVEXrGjpAQELrFzi3Kz0yQULrGDnvGDo8PD7sLEhmZmfqAC/+6u7rIT/+7vLqCjLvWGz61NbqACfuAC1XV1jtNk/tN1LuQVr2p7H2oazxa3760dbvTmTpABPpAB7wW3DsKkX4tr/xYXdRXFw+TEw2NjmoqKidnZ2RkZFzc3NbW1xNTU94eHmY4/RqAAAAmElEQVQYlV2NCQ6CQAxFyyjQwWGRsowLssgy6P3v50ARE1/a5PflJwUAcMWGCysuqixDxDpTbASGeVHqy/WmA27A6a5QxUmVi02ED11HcXIWsDeKVcBXhFVQ4E+IvInbsm41P/EsaRSlnp0FOPwBx5Wue3acwLH0A42DHPolsxhpnMy0CyKaZ5IOvVj45i2lXWOMzw1/xx4fR98LGZcyygIAAAAASUVORK5CYII=",
+      "text": "With everyday developments in the artificial intelligence (AI) space, businesses are more than excited to explore the wide prospects of tapping into foundation models, machine learning, natural language processing, and accelerating generative AI workloads. In an environment when integration within business systems and seamless interconnection with various software are paramount, the use cases of AI are manifold.\nOut of the 63 use cases of AI that McKinsey analysed in its latest research, the firm estimates that generative AI could add the equivalent of $2.6 trillion to $4.4 trillion annually. Going all-in on AI, leaders in a report by PwC also indicate that taking a holistic approach and tackling three major business outcomes together – business transformation, enhanced decision-making, and modernised systems and processes – the rewards of AI for business are only increasing. Companies that take this more holistic approach to AI, focusing on achieving the three business goals, see greater success than those that take a singular approach.\nAI and business leaders are also looking towards harnessing the power of responsible AI for business acceleration, aiding ERP data modernisation which is key to digital business transformation, and driving customer service to the next level with the right AI deployments.\nAs AI and automation accelerate businesses in taking a faster and more resolved step towards success, organisations must look for the right AI tools and solutions that can cater to their custom needs and requirements to stay ahead of the curve. However, as is the case with every new development in technology, there are still a lot of curveballs and unforeseen challenges that keep businesses still on the fence about its adoption.\nHow businesses can thrive in this new era of AI with trust and confidence, tackling unforeseen barriers\nArtificial intelligence has been challenging to scale and operationalise, as each new use case requires a new model to be designed and built using specific data. Therefore, although adoption is increasing — today, 35 percent of companies are using AI in their business, while an additional 42 percent are exploring the technology — only 54 percent of AI projects really make it from pilot to production.\nPlacing trust at the core of any business’ AI strategy, there are three main critical elements of a strong AI strategy: How to create a competitive edge, how to scale AI across the business, and how to advance trustworthy AI.\nTo be truly impactful, AI should integrate into existing workflows and systems, automating key processes across areas such as customer service, supply chain and cybersecurity. Foundation models make it possible to fine-tune AI to an enterprise’s unique data and domain knowledge with a specificity that was previously impossible, so it’s essential to let the business strategy guide the data strategy. AI is only as good as the data that fuels it, and it’s critical to identify the right data sets from the beginning. Poor quality data can cause projects to falter, while businesses cite excessive data complexity and challenges with integration as posing major obstacles to AI adoption.\nAccelerating the impact of AI with IBM Watsonx\nKeeping in mind the three critical elements of an AI strategy, IBM Watsonx is a new AI and data platform designed to empower enterprises to scale and accelerate the impact of AI across the business, leveraging data wherever it resides. IBM software products are embedding Watsonx capabilities across digital labour, IT automation, security, sustainability and application modernisation to help unlock new levels of productivity, performance and speed for greater business value.\nThe platform has three main components that businesses can leverage:\nA next-generation studio for enterprise AI — IBM watsonx.ai provides businesses with the ability to train, validate, tune, and deploy both ML and new generative AI capabilities powered by foundation models. These models are designed to work on multi-cloud architectures and are built with a rigorous focus on data acquisition, provenance and quality to serve enterprise needs.\nAn open, hybrid, and governed data store — IBM watsonx.data makes it possible for enterprises to scale AI workloads, using all their data with a fit-for-purpose data store optimised for governed data and AI workloads. It’s supported by querying, governance and open data formats to access and share data.\nA powerful tool kit for AI governance — IBM watsonx.governance helps clients create responsible, transparent and explainable AI workflows by providing AI governance capabilities like model management throughout the AI lifecycle.\nOpportunities to put AI to work\nDigital labour: AI is fundamentally about making things better for people. Putting AI to work across processes which are complicated or repetitive covers businesses’ continuous need for labour. IBM Watson Orchestrate can help boost employee productivity with AI and automation, create exceptional customer care, AI for code, and process claims with accuracy, speed, and efficiency.\nIT Automation: A more automated information infrastructure massively augments the oversight capabilities of IT teams, ensuring efficiency and resilience. With IBM Instana, businesses can advance enterprise observability, while IBM Turbonomic can automate operations, and IBM AIOps Insights helps optimise incident management.\nSecurity and compliance: AI can expand not only visibility and accelerate response times with orchestration and automation, but compliance and security controls can also be built into a hybrid cloud architecture, thereby determining who gets access to what and when. With more prevalent cyberattacks plaguing the threat landscape, IBM QRadar can help augment security teams to help detect and eliminate threats and reduce risk, protect businesses with a cyber-resilient infrastructure, and build and manage an integrated security programme.\nApplication modernisation: In the rapidly evolving world of digital business, organisations face the increasingly complex challenge of seamlessly integrating a multitude of disparate systems and applications. To help businesses with their APIs, IBM API Connect can boost digital transformation with API management, connect all applications and systems, and put events to work and respond in real time.\nSustainability: AI can help the opportunity to innovate while becoming more sustainable. IBM Envizi can help businesses achieve their required sustainability goals by developing intelligent assets, facilities and infrastructure, collecting ESG data, reporting and risk management, and creating a sustainable supply chain with circularity.\nThere’s no denying that AI is fundamentally changing every part of the way we work. Therefore, organisations need to use this change to their advantage and elevate their business success with solutions like IBM Watsonx that unlock new levels of productivity by infusing AI and automation into core business workflows.\nExperience watsonx in action at upcoming Think events in Mumbai and Singapore:https://www.ibm.com/events/think/"
+    },
+    {
+      "company_domain": "ibm.com",
+      "URL": "https://www.mediaupdate.co.za/marketing/154366/ibm-study-shows-african-ceos-identify-advanced-ai-and-analytics-as-success-drivers",
+      "title": "IBM study shows African CEOs identify advanced AI and ...",
+      "snippet": "Individuals are encouraged to view the complete study here. For more  information, visit www.ibm.com/ibv. You can also follow IBM on Twitter.",
+      "date_published": "2023-07-26T23:00:00.000Z",
+      "source": "Media Update",
+      "source_logo_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAMAAADarb8dAAAArlBMVEVHcEzMXz/fSULWR0RVicPWR0QtpubWR0SjtC/XRUTG0jPXSUaYvzmwuABnkqZmkaqcvTM0l9TbSUWxvCK2SU/YQ0RRh8qTWW+frzHDdz2lzDTWR0TYRkLUNDHWPzvFUl3SR0nmm5nwxMPWOjbebGr76uj54uGFYX+BoH2PplCmTWb88O7qpKL////bT0xWh7+VrVFviW6iS1jgf32tXFTkkY+FlT6igFHzzcv33txFz3E1AAAAG3RSTlMA7jT4uJ8X2H1WDH9fOv7kZCllMtmZWcjXmiI9gnGDAAAAmUlEQVQImVWP5xaCMAxGiyCtuPfowDJaZIlb3//FJGg9cvMnuScnJx9CBjJE/wyqZHR0P32H2jbdA7QPs7tm1NAFsdJt4d214CHnIhScLWFjo8v4+VIykCqyQOweXIk4CqQMoisBsy2LW5HHlyzL04NXix7lAqo+lZ7mjTCws4MawQAQi2nzKfYBC2M8+wZxxkk1aUVD5Ne9Ack4EWFJH9vKAAAAAElFTkSuQmCC",
+      "text": null
+    }
+  ]
   ```
 </ResponseExample>
