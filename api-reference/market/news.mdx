@@ -16,6 +16,15 @@ description: "Retrieve a list of news articles and events specifically tailored 
   Filter the news articles based on a specific keyword or phrase.
 </ParamField>
 
+<ParamField query="page" type="string" initialValue="1">
+  The page, used to paginate through results.
+</ParamField>
+
+<ParamField query="perPage" type="string" initialValue="25">
+  Number of news articles returned per page (Maximum 200).
+</ParamField>
+
+
 ### Response
 
 <ResponseField name="company_domain" type="string">
