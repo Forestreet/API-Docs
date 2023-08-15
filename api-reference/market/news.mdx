@@ -16,6 +16,14 @@ description: "Retrieve a list of news articles and events specifically tailored 
   Filter the news articles based on a specific keyword or phrase.
 </ParamField>
 
+<ParamField query="domains" type="string" initialValue="">
+  Filter the news articles based on domains. Should be provided as a stringified array: oracle.com, sap.com, accenture.com
+</ParamField>
+
+<ParamField query="relevance" type="string" initialValue="">
+  Filter the news articles based on the article relevance, on a scale of 0 to 1.0. Default is 0.1.
+</ParamField>
+
 <ParamField query="page" type="string" initialValue="1">
   The page, used to paginate through results.
 </ParamField>
