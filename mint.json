@@ -54,6 +54,7 @@
       "pages": [
         "introduction",
         "api-reference/authentication",
+        "api-reference/markets/search",
         "api-reference/market/get",
         "api-reference/market/companies",
         "api-reference/market/news",

@@ -1,18 +1,103 @@
 ---
-title: "Search Markets (UI)"
-description: "How to authenticate your API requests"
+title: "Search Markets"
+api: "POST https://ms-141ab1ad33f8-5107.lon.meilisearch.io/indexes/markets/search"
+description: "Search through the list of available markets."
+authMethod: "bearer"
 ---
 
-Before diving into our API's endpoints, ensure you're properly authenticated to access the desired data. Authentication is achieved through the x-api-key header, ensuring the security and integrity of the interactions.
+### Body
 
-### Header Example:
+<ParamField body="q" type="string" default="" required>
+  The query string to search for a phrase or keyword within a Market's name, description, or subtitle.
+</ParamField>
 
-```bash
-'x-api-key': '<api_token>'
-```
+Use Bearer Token: c03dee4846b2f8f7c0fd5efec48e59f8b6b3c298
 
-## API Tokens
+### Response
 
-API tokens are the backbone of our authentication process, linking each request to a recognized and authorized user or application. These tokens should be kept confidential. If compromised, it's crucial to revoke and generate a new token immediately. To do this, reach out to us at info@forestreet.com.
 
-Each token is associated with specific permissions, granting access to various levels and types of data. Speak to us about the various levels of data access that you require.
+<ResponseExample>
+  ```json Response
+  {
+    "hits": [
+      {
+        "name": "Sustainability Consulting",
+        "subtitle": "Initial view of specialist consulting",
+        "description": "This study maps out the sustainable consulting market. Exploring companies that offer a variety of services within the sector such as sustainability analytics and ESG data collection",
+        "company_count": 189,
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/esg%402x.jpg",
+        "_formatted": {
+        "name": "<ais-highlight-0000000000>Sus</ais-highlight-0000000000>tainability Consulting",
+        "subtitle": "Initial view of specialist consulting",
+        "description": "This study maps out the <ais-highlight-0000000000>sus</ais-highlight-0000000000>tainable consulting market. Exploring companies that offer a variety of services within the sector such as <ais-highlight-0000000000>sus</ais-highlight-0000000000>tainability analytics and ESG data collection",
+        "company_count": "189",
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/esg%402x.jpg"
+      }
+      },
+      {
+        "name": "Concrete Sustainable",
+        "subtitle": "Created 16/01/2023 15:54:21",
+        "description": "Clone of Prod study 1161",
+        "company_count": 0,
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Concrete%20Sustainable%402x.jpg-2023-01-16T16%3A17%3A30.801Z",
+        "_formatted": {
+        "name": "Concrete <ais-highlight-0000000000>Sus</ais-highlight-0000000000>tainable",
+        "subtitle": "Created 16/01/2023 15:54:21",
+        "description": "Clone of Prod study 1161",
+        "company_count": "0",
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Concrete%20Sustainable%402x.jpg-2023-01-16T16%3A17%3A30.801Z"
+      }
+      },
+      {
+        "name": "Environmental protection companies",
+        "subtitle": "Created 31/08/2022 08:47:15",
+        "description": "Sustainable and environmentally friendly",
+        "company_count": 0,
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Environmental%20protection%20companies%402x.jpg-2022-11-09T14%3A02%3A25.464Z",
+        "_formatted": {
+        "name": "Environmental protection companies",
+        "subtitle": "Created 31/08/2022 08:47:15",
+        "description": "<ais-highlight-0000000000>Sus</ais-highlight-0000000000>tainable and environmentally friendly",
+        "company_count": "0",
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Environmental%20protection%20companies%402x.jpg-2022-11-09T14%3A02%3A25.464Z"
+      }
+      },
+      {
+        "name": "Builders Merchant",
+        "subtitle": "in South East England",
+        "description": "Builders Merchant/Suppliers in Sussex, London, Kent and Essex.",
+        "company_count": 0,
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%402x.jpg-2023-07-12T14%3A51%3A12.965Z",
+        "_formatted": {
+        "name": "Builders Merchant",
+        "subtitle": "in South East England",
+        "description": "Builders Merchant/Suppliers in <ais-highlight-0000000000>Sus</ais-highlight-0000000000>sex, London, Kent and Essex.",
+        "company_count": "0",
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%402x.jpg-2023-07-12T14%3A51%3A12.965Z"
+      }
+      },
+      {
+        "name": "Builders Merchant in SE England",
+        "subtitle": "Study for location search.",
+        "description": "Builders Merchant/Supplier in Sussex, Surrey, London, Kent, Essex.",
+        "company_count": 0,
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%20in%20SE%20England%402x.jpg-2023-07-13T09%3A19%3A12.064Z",
+        "_formatted": {
+        "name": "Builders Merchant in SE England",
+        "subtitle": "Study for location search.",
+        "description": "Builders Merchant/Supplier in <ais-highlight-0000000000>Sus</ais-highlight-0000000000>sex, Surrey, London, Kent, Essex.",
+        "company_count": "0",
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%20in%20SE%20England%402x.jpg-2023-07-13T09%3A19%3A12.064Z"
+      }
+      }
+    ],
+    "query": "sus",
+    "processingTimeMs": 0,
+    "limit": 21,
+    "offset": 0,
+    "estimatedTotalHits": 5,
+    "facetDistribution": {},
+    "facetStats": {}
+  }
+  ```
+</ResponseExample>
