@@ -1,103 +1,114 @@
 ---
 title: "Search Markets"
-api: "POST https://ms-141ab1ad33f8-5107.lon.meilisearch.io/indexes/markets/search"
-description: "Search through the list of available markets."
-authMethod: "bearer"
+api: "POST https://api-dev.forestreet.com/markets/search"
+description: "Search the list of available markets."
 ---
 
 ### Body
 
-<ParamField body="q" type="string" default="" required>
-  The query string to search for a phrase or keyword within a Market's name, description, or subtitle.
+<ParamField body="keyword" type="string" default="">
+  The string to search for a phrase or keyword within a Market's name, description, or subtitle.
 </ParamField>
 
-Use Bearer Token: c03dee4846b2f8f7c0fd5efec48e59f8b6b3c298
+<ParamField body="page" type="number" default="">
+  The page to return from the paginated results
+</ParamField>
 
-### Response
-
+<ParamField body="itemsPerPage" type="number" default="">
+  The number of markets to return per page
+</ParamField>
 
 <ResponseExample>
   ```json Response
   {
-    "hits": [
+    "meta": {
+    "currentPage": 1,
+    "itemsPerPage": 25,
+    "totalItems": 5,
+    "totalPages": 1
+  },
+    "data": [
       {
+        "_id": "6512eb039f2f1cbf995fd971",
+        "ID": 1,
         "name": "Sustainability Consulting",
         "subtitle": "Initial view of specialist consulting",
         "description": "This study maps out the sustainable consulting market. Exploring companies that offer a variety of services within the sector such as sustainability analytics and ESG data collection",
         "company_count": 189,
         "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/esg%402x.jpg",
-        "_formatted": {
-        "name": "<ais-highlight-0000000000>Sus</ais-highlight-0000000000>tainability Consulting",
-        "subtitle": "Initial view of specialist consulting",
-        "description": "This study maps out the <ais-highlight-0000000000>sus</ais-highlight-0000000000>tainable consulting market. Exploring companies that offer a variety of services within the sector such as <ais-highlight-0000000000>sus</ais-highlight-0000000000>tainability analytics and ESG data collection",
-        "company_count": "189",
-        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/esg%402x.jpg"
-      }
+        "date_created": "2020-12-09 00:00:00",
+        "is_editable": 1,
+        "review_status": "published",
+        "is_archived": 0,
+        "is_public": 0,
+        "image_user_name": null,
+        "image_user_unsplash_url": null
       },
       {
-        "name": "Concrete Sustainable",
-        "subtitle": "Created 16/01/2023 15:54:21",
-        "description": "Clone of Prod study 1161",
-        "company_count": 0,
-        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Concrete%20Sustainable%402x.jpg-2023-01-16T16%3A17%3A30.801Z",
-        "_formatted": {
-        "name": "Concrete <ais-highlight-0000000000>Sus</ais-highlight-0000000000>tainable",
-        "subtitle": "Created 16/01/2023 15:54:21",
-        "description": "Clone of Prod study 1161",
-        "company_count": "0",
-        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Concrete%20Sustainable%402x.jpg-2023-01-16T16%3A17%3A30.801Z"
-      }
-      },
-      {
+        "_id": "6512eb049f2f1cbf995fd99e",
+        "ID": 1877,
         "name": "Environmental protection companies",
         "subtitle": "Created 31/08/2022 08:47:15",
         "description": "Sustainable and environmentally friendly",
         "company_count": 0,
         "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Environmental%20protection%20companies%402x.jpg-2022-11-09T14%3A02%3A25.464Z",
-        "_formatted": {
-        "name": "Environmental protection companies",
-        "subtitle": "Created 31/08/2022 08:47:15",
-        "description": "<ais-highlight-0000000000>Sus</ais-highlight-0000000000>tainable and environmentally friendly",
-        "company_count": "0",
-        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Environmental%20protection%20companies%402x.jpg-2022-11-09T14%3A02%3A25.464Z"
-      }
+        "date_created": "2022-10-11 15:29:02",
+        "is_editable": 1,
+        "review_status": "published",
+        "is_archived": 0,
+        "is_public": 0,
+        "image_user_name": null,
+        "image_user_unsplash_url": null
       },
       {
+        "_id": "6512eb049f2f1cbf995fd9a4",
+        "ID": 3293,
+        "name": "Concrete Sustainable",
+        "subtitle": "Created 16/01/2023 15:54:21",
+        "description": "Clone of Prod study 1161",
+        "company_count": 0,
+        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Concrete%20Sustainable%402x.jpg-2023-01-16T16%3A17%3A30.801Z",
+        "date_created": "2023-01-16 15:54:22",
+        "is_editable": 1,
+        "review_status": "published",
+        "is_archived": 0,
+        "is_public": 0,
+        "image_user_name": "Wesley Tingey",
+        "image_user_unsplash_url": "https://unsplash.com/@wesleyphotography"
+      },
+      {
+        "_id": "6512eb049f2f1cbf995fd9b1",
+        "ID": 3728,
         "name": "Builders Merchant",
         "subtitle": "in South East England",
         "description": "Builders Merchant/Suppliers in Sussex, London, Kent and Essex.",
         "company_count": 0,
         "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%402x.jpg-2023-07-12T14%3A51%3A12.965Z",
-        "_formatted": {
-        "name": "Builders Merchant",
-        "subtitle": "in South East England",
-        "description": "Builders Merchant/Suppliers in <ais-highlight-0000000000>Sus</ais-highlight-0000000000>sex, London, Kent and Essex.",
-        "company_count": "0",
-        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%402x.jpg-2023-07-12T14%3A51%3A12.965Z"
-      }
+        "date_created": "2023-07-12 14:42:15",
+        "is_editable": 1,
+        "review_status": "draft",
+        "is_archived": 1,
+        "is_public": 0,
+        "image_user_name": "Philip Swinburn",
+        "image_user_unsplash_url": "https://unsplash.com/@pjswinburn"
       },
       {
+        "_id": "6512eb049f2f1cbf995fd9b2",
+        "ID": 3729,
         "name": "Builders Merchant in SE England",
         "subtitle": "Study for location search.",
         "description": "Builders Merchant/Supplier in Sussex, Surrey, London, Kent, Essex.",
         "company_count": 0,
         "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%20in%20SE%20England%402x.jpg-2023-07-13T09%3A19%3A12.064Z",
-        "_formatted": {
-        "name": "Builders Merchant in SE England",
-        "subtitle": "Study for location search.",
-        "description": "Builders Merchant/Supplier in <ais-highlight-0000000000>Sus</ais-highlight-0000000000>sex, Surrey, London, Kent, Essex.",
-        "company_count": "0",
-        "header_image_url": "https://ailsa-study-thumbnails.s3.eu-west-2.amazonaws.com/Builders%20Merchant%20in%20SE%20England%402x.jpg-2023-07-13T09%3A19%3A12.064Z"
+        "date_created": "2023-07-12 17:15:13",
+        "is_editable": 1,
+        "review_status": "draft",
+        "is_archived": 0,
+        "is_public": 0,
+        "image_user_name": null,
+        "image_user_unsplash_url": null
       }
-      }
-    ],
-    "query": "sus",
-    "processingTimeMs": 0,
-    "limit": 21,
-    "offset": 0,
-    "estimatedTotalHits": 5,
-    "facetDistribution": {},
-    "facetStats": {}
+    ]
   }
   ```
 </ResponseExample>

@@ -1,23 +1,27 @@
 ---
 title: "Companies in a Market"
-api: "GET https://o2iren52nf.execute-api.eu-west-2.amazonaws.com/dev/markets/{market_id}/companies"
-description: "This endpoint gets the companies in a given market."
+api: "POST https://api-dev.forestreet.com/markets/{marketId}/companies"
+description: "This endpoint retrieves the companies for a given market."
 ---
 
 ### Path
 
-<ParamField path="market_id" type="string" initialValue="1">
-  The ID of the market whose companies you want to retrieve.
+<ParamField path="marketId" type="string" initialValue="2">
+  The ID of the market whose companies you want to retrieve. This can be retrieve by searching for markets.
 </ParamField>
 
-### Query Parameters
+### Body
 
-<ParamField query="perPage" type="string" default="10" initialValue="10">
-  Specifies the number of companies to retrieve per page.
+<ParamField body="companyName" type="string" default="" initialValue="">
+  The name of the company you'd like to return
 </ParamField>
 
-<ParamField query="page" type="string" default="1" initialValue="1">
-  The page number to retrieve.
+<ParamField body="page" type="number" default="">
+  The page to return from the paginated results
+</ParamField>
+
+<ParamField body="itemsPerPage" type="number" default="">
+  The number of markets to return per page
 </ParamField>
 
 ### Response
@@ -140,94 +144,121 @@ description: "This endpoint gets the companies in a given market."
 <ResponseExample>
   ```json Response
   {
-    "pagination": {
-      "total": 168,
-      "lastPage": 84,
-      "prevPage": 1,
-      "nextPage": 3,
-      "perPage": 2,
-      "currentPage": 2,
-      "from": 2,
-      "to": 4,
-      "total_filtered": 168
-    },
-    "data": [
+    "meta": {
+    "totalItems": 217,
+    "currentPage": 1,
+    "totalPages": 109,
+    "itemsPerPage": 2
+  },
+    "study_companies": [
       {
-        "id": "intelligentvoice.com",
-        "logoURL": "https://logo.clearbit.com/intelligentvoice.com",
-        "name": "Intelligent Voice",
-        "description": "Intelligent Voice is a company that provides secure speech and natural language processing solutions to regulated and privacy sensitive industries. They are pioneers in GPU processing of speech and offer transcription, NLP, and biometric techniques to ...",
-        "foundedYear": 1990,
+        "id": "myplanet.com",
+        "logoURL": "https://logo.clearbit.com/myplanet.com",
+        "name": "Myplanet",
+        "description": "Myplanet is a software studio. They make smarter interfaces to empower your employees and engage your customers. They are on a mission to make business software a lot more delightful, and much more intelligent. Myplanet designs, validates, and develops marketing & commerce platforms, custom business applications, and collaboration solutions that empower employees to deliver great customer experiences. They believe that technology should inspire wonder and support the pursuit of purpose.",
+        "foundedYear": 2021,
         "totalFundingAmount": null,
-        "hqAddress": "House, 30, 33 Minories, Tower, London EC3N 1PE, UK",
+        "hqAddress": "Toronto, Ontario, Canada",
+        "hqCity": "Toronto",
+        "hqState": "Ontario",
+        "hqCountry": "Canada",
+        "size": "50-250",
+        "fundingRounds": null,
+        "IPODate": null,
+        "revenue": null,
+        "linkedInHandle": "company/myplanethq",
+        "twitterHandle": "myplanet",
+        "tags": [],
+        "professionalEmployeeEstimate": null,
+        "funding": null,
+        "entryPoint": null,
+        "contactNumber": null,
+        "contactEmail": null,
+        "parentCompany": null,
+        "actualRevenue": null,
+        "founders": null,
+        "ceo": "Jason Cottrell",
+        "ukCompaniesHouseIds": null,
+        "subsidiaries": null,
+        "ukPersonsWithSignificantControl": [],
+        "shareholdersList": [],
+        "cluster": ""
+      },
+      {
+        "id": "qurious.io",
+        "logoURL": "https://logo.clearbit.com/qurious.io",
+        "name": "Qurious",
+        "description": "We are great believers in the power of human curiosity that is why we are working in stealth! For the last two decades, we have been researching, studying, and digging deep into what makes individuals curious and how curiosity triggers innovation. We have found ourselves obsessing over: What happens when one's curiosity is not fulfilled? Boredom. Loss of interest. Lack of productivity. Acceptance of no better future. Qurious is here to fulfil each and everyone's curiosity with instant answers available at the click of a button.",
+        "foundedYear": 2021,
+        "totalFundingAmount": null,
+        "hqAddress": "20-22 Wenlock Road, London, Greater London, United Kingdom",
         "hqCity": "London",
         "hqState": "Greater London",
         "hqCountry": "United Kingdom",
-        "size": "10-50",
-        "fundingRounds": null,
-        "IPODate": null,
-        "revenue": "$1M-$10M",
-        "linkedInHandle": "company/intelligent-voice-limited",
-        "twitterHandle": "intelligentvox",
-        "tags": [
-          "Voice biometrics",
-          "Call-centre integration",
-          "Sensitive data detection & redaction",
-          "Speech analytics",
-          "Automatic speech-to-text",
-          "Multi-language",
-          "FS Use Cases"
-        ],
-        "momentum": {
-          "esg": 71,
-          "overall": 72,
-          "webTraffic": 65,
-          "mediaAnalysis": 90,
-          "revenueEstimates": 30
-      },
-        "overallMomentum": 72,
-        "funding": null,
-        "entryPoint": null,
-        "contactNumber": "+44-20-3627-2670",
-        "contactEmail": "info@intelligentvoice.com"
-      },
-      {
-        "id": "speechtext.ai",
-        "logoURL": "https://logo.clearbit.com/speechtext.ai",
-        "name": "SpeechText.AI",
-        "description": "AI software for speech to text conversion and audio/video transcription. Get accurate results using domain-specific speech recognition engine! Start for free.",
-        "foundedYear": 2019,
-        "totalFundingAmount": null,
-        "hqAddress": "Berlin, Berlin, DEU",
-        "hqCity": "Berlin",
-        "hqState": "Berlin",
-        "hqCountry": "Germany",
         "size": "1-10",
         "fundingRounds": null,
         "IPODate": null,
         "revenue": "$0-$1M",
-        "linkedInHandle": "company/speechtext-ai",
-        "twitterHandle": "SpeechTextAI",
+        "linkedInHandle": "company/qurious-tech",
+        "twitterHandle": null,
         "tags": [
-          "Speaker separation",
-          "Transcript editing",
-          "Multi-language",
-          "Corpus building and annotations",
-          "Voice biometrics",
-          "Automatic speech-to-text"
+        "Call-centre integration",
+        "Tone & sentiment",
+        "Speech analytics",
+        "Automatic speech-to-text",
+        "Speaker separation",
+        "FS Use Cases"
         ],
-        "momentum": {
-          "esg": 7,
-          "overall": 70,
-          "webTraffic": 99,
-          "mediaAnalysis": 86,
-          "revenueEstimates": 20
-      },
-        "overallMomentum": 70,
+        "professionalEmployeeEstimate": null,
         "funding": null,
         "entryPoint": null,
         "contactNumber": null,
-        "contactEmail": "support@speechtext.ai"
+        "contactEmail": null,
+        "parentCompany": null,
+        "actualRevenue": 950000,
+        "founders": [
+      {
+        "name": "Sabrina Atienza",
+        "type": "Person",
+        "image": "https://kg.diffbot.com/image/api/get?fetch=yes&url=g%3Cj7P0St%7B6u.%5DyIn%7E.qNb%3D%5C%2FBR3Wfya6%40_%3Bj%3CW4%5El5g3RdAf%7EEpGUtPm20A5g17I%5B7%3AWm%7Eh5K.%7CS%60",
+        "types": [
+        "Person"
+        ],
+        "summary": "Founder at Valued",
+        "diffbotUri": "http://diffbot.com/entity/EKgjgaKFCNLyvKlHr5UY4TQ",
+        "targetDiffbotId": "EKgjgaKFCNLyvKlHr5UY4TQ"
+      }
+        ],
+        "ceo": null,
+        "ukCompaniesHouseIds": [
+        "13111514"
+        ],
+        "subsidiaries": null,
+        "ukPersonsWithSignificantControl": [
+      {
+        "id": 0,
+        "name": "Mr Gurpreet Mann",
+        "ownership": [
+        "25% to 50%"
+        ],
+        "type": "Person",
+        "status": false
+      },
+      {
+        "id": 1,
+        "name": "Dr Gaurav Gandhi",
+        "ownership": [
+        "25% to 50%"
+        ],
+        "type": "Person",
+        "status": false
+      }
+        ],
+        "shareholdersList": [
+        "Mr Gurpreet Mann",
+        "Dr Gaurav Gandhi"
+        ],
+        "cluster": ""
       }
     ]
   }

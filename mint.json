@@ -55,12 +55,7 @@
         "introduction",
         "api-reference/authentication",
         "api-reference/markets/search",
-        "api-reference/market/get",
-        "api-reference/market/companies",
-        "api-reference/market/news",
-        "api-reference/company/get",
-        "api-reference/company/esg",
-        "api-reference/company/momentum"
+        "api-reference/market/companies"
       ]
     }
   ],
