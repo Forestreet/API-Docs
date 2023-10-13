@@ -50,10 +50,21 @@
   ],
   "navigation": [
     {
-      "group": "Forestreet API",
+      "group": "Authentication",
       "pages": [
         "introduction",
-        "api-reference/authentication",
+        "api-reference/authentication"
+      ]
+    },
+    {
+      "group": "Users",
+      "pages": [
+        "api-reference/users/create"
+      ]
+    },
+    {
+      "group": "Markets & Companies",
+      "pages": [
         "api-reference/markets/search",
         "api-reference/market/companies"
       ]

@@ -1,0 +1,27 @@
+---
+title: "Create User"
+api: "POST https://api-dev.forestreet.com/users"
+description: "Create a new user on the Forestreet platform."
+---
+
+### Body
+
+<ParamField body="email" type="string" initialValue="">
+  The new user's email address
+</ParamField>
+
+<ParamField body="firstName" type="string" initialValue="">
+  The new user's first name
+</ParamField>
+
+<ParamField body="lastName" type="string" initialValue="">
+  The new user's last name
+</ParamField>
+
+On creation, the user will be sent an email with instructions to create a password for their account.
+
+<ResponseExample>
+  ```
+
+  ```
+</ResponseExample>
