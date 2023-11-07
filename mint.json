@@ -66,7 +66,8 @@
       "group": "Markets & Companies",
       "pages": [
         "api-reference/markets/search",
-        "api-reference/market/companies"
+        "api-reference/market/companies",
+        "api-reference/market/locations"
       ]
     }
   ],
